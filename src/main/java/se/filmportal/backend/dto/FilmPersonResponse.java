@@ -22,5 +22,13 @@ public class FilmPersonResponse {
         this.role = role;
     }
 
+	public Long getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Long personId) {
+		this.personId = personId;
+	}
+
 	
 }
