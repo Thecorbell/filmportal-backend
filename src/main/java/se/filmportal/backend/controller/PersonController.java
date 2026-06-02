@@ -2,6 +2,7 @@ package se.filmportal.backend.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -43,6 +44,7 @@ public class PersonController {
     			.orElseThrow();
     }
     
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Person createPerson(@RequestBody Person person) {
     	return personRepository.save(person);
@@ -59,6 +61,7 @@ public class PersonController {
     	person.setPhone(updatedPerson.getPhone());
     	return personRepository.save(person);
     }
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void deletePerson(@PathVariable Long id) {
     	personRepository.deleteById(id);
@@ -83,6 +86,7 @@ public class PersonController {
 
                     response.setTitle(film.getTitle());
                     response.setRole(relation.getRole());
+                    response.setFilmId(relation.getFilmId());
 
                     return response;
                 })
