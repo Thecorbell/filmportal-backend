@@ -10,5 +10,4 @@ public interface ImageRepository
                extends JpaRepository<Image, Long>{
 	List<Image> findByFilmId(Long filmId);
 
-
 }
